@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}djprod{% endblock %}</title>
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="{% static 'favicon.ico' %}"
+            type="image/x-icon"
+        />
+
+        <!-- Base stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
+        {% block stylesheet %}{% endblock %}
+    </head>
+    <body>
+        <header>{% block header %}{% endblock %}</header>
+
+        <main role="main" class="container">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>{% block footer %}{% endblock %}</footer>
+
+        <!-- Base script -->
+        <script src="{% static 'js/base.js' %}"></script>
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
