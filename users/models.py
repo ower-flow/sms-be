@@ -127,8 +127,8 @@ class CustomUser(AbstractUser):
         return self.role == required_role
     
     def is_school_admin(self):
-        """Check if user is school admin or superuser"""
-        return self.is_superuser or self.role == RoleEnum.SCHOOL_ADMIN
+        """Check if user is school admin"""
+        return self.role == RoleEnum.SCHOOL_ADMIN
     
     @property
     def age(self):
