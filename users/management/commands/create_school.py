@@ -19,7 +19,7 @@ class Command(BaseCommand):
         zipcode = "54000"
         principal_name = "Dr. Fahad"
         established_year = 2021
-        school_type = SchoolTypeEnum.HIGH_SCHOOL.value[0]
+        school_type = SchoolTypeEnum.HIGH_SCHOOL
         # subscription_status = True
         subscription_start = date(2024, 1, 1)
         subscription_end = date(2025, 1, 1)
