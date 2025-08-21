@@ -86,11 +86,11 @@ class CustomUser(AbstractUser):
     
     def save(self, *args, **kwargs):
         """Override save to handle superuser role logic"""
-        # Superuser ko koi role nahi dete
+        # Superuser does not have any role
         if self.is_superuser:
             self.role = None
         elif not self.role and not self.is_superuser:
-            # Regular users ko default role dete hain
+            # Regular users have default role
             self.role = RoleEnum.SCHOOL_ADMIN
         
         super().save(*args, **kwargs)
