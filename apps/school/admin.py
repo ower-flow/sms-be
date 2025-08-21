@@ -4,8 +4,8 @@ from .models import School, SchoolAdminModel
 
 @admin.register(School)
 class SchoolAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'unique_id', 'city', 'state', 'contact_number', 'email', 'school_type')
-    list_filter = ('school_type', 'state', 'city')
+    list_display = ('id', 'name', 'unique_id', 'city', 'state', 'contact_number', 'email',)
+    list_filter = ('state', 'city')
     search_fields = ('name', 'unique_id', 'city', 'email', 'contact_number')
     ordering = ('name',)
     readonly_fields = ('is_subscription_valid', 'subscription_duration')
@@ -21,7 +21,7 @@ class SchoolAdmin(admin.ModelAdmin):
             'fields': ('subscription_start_date', 'subscription_end_date', 'is_subscription_valid', 'subscription_duration')
         }),
         ('School Details', {
-            'fields': ('established_year', 'principal_name', 'school_type')
+            'fields': ('established_year', 'principal_name',)
         }),
     )
 
