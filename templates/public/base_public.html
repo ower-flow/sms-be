@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HyprSaaS — Professional School Management</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+              rel="stylesheet" />
+        <script>tailwind.config = { darkMode: 'class' };</script>
+        <style>
+    body { font-family: 'Inter', sans-serif; }
+    .bg-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 h20 v20 h-20 z M20 0 h20 v20 h-20 z' fill='none' stroke='%234b5563' stroke-width='1'/%3E%3C/svg%3E");
+    }
+        </style>
+    </head>
+    <body class="bg-gray-950 text-gray-100 transition-colors duration-300">
+        <!-- NAVBAR -->
+        <header class="sticky top-0 bg-gray-900 shadow z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-indigo-500">Owerflow</a>
+                <nav id="menu" class="hidden md:flex space-x-8 text-gray-300">
+                    <a href="#features" class="hover:text-indigo-400 transition">Features</a>
+                    <a href="#pricing" class="hover:text-indigo-400 transition">Pricing</a>
+                    <a href="#testimonials" class="hover:text-indigo-400 transition">Testimonials</a>
+                    <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="#"
+                       class="hidden md:inline text-gray-300 hover:text-indigo-400 transition">Login</a>
+                    <a href="#"
+                       class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition">Get Started</a>
+                    <button id="hamburger" class="md:hidden p-2 text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <nav id="mobile-menu" class="md:hidden hidden px-6 pb-4 bg-gray-900">
+                <a href="#features"
+                   class="block py-2 text-gray-300 hover:text-indigo-400 transition">Features</a>
+                <a href="#pricing"
+                   class="block py-2 text-gray-300 hover:text-indigo-400 transition">Pricing</a>
+                <a href="#testimonials"
+                   class="block py-2 text-gray-300 hover:text-indigo-400 transition">Testimonials</a>
+                <a href="#contact"
+                   class="block py-2 text-gray-300 hover:text-indigo-400 transition">Contact</a>
+            </nav>
+        </header>
+        <!-- HERO -->
+        <section class="bg-gradient-to-r from-indigo-600 to-purple-600 py-24">
+            <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-5xl font-extrabold text-white mb-6 leading-tight">Simplify School Management with Precision</h1>
+                    <p class="text-indigo-100 mb-8 text-lg">Unify admin, staff, and student workflows into one intuitive platform.</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#"
+                           class="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:scale-105 transform transition shadow">Start Free Trial</a>
+                        <a href="#features"
+                           class="px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-indigo-600 transition transform hover:scale-105 shadow">See Features</a>
+                    </div>
+                </div>
+                <div class="flex-1 relative">
+                    <img src="{% static 'assets/dashboard.png' %}"
+                         alt="Dashboard preview"
+                         class="rounded-2xl shadow-2xl hover:scale-105 transform transition" />
+                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-indigo-600 text-white px-5 py-2 rounded-full shadow-lg">
+                        Trusted by 200+ Schools
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FEATURES -->
+        <section id="features" class="py-20 bg-pattern dark:bg-gray-900">
+            <div class="max-w-4xl mx-auto px-6 text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Key Features</h2>
+                <p class="text-gray-400 mt-2">Everything your school needs, built-in and ready to go.</p>
+            </div>
+            <div class="max-w-5xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Unified Dashboard -->
+                <div class="p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                    <svg class="w-10 h-10 text-indigo-500 mb-4"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Unified Dashboard</h3>
+                    <p class="text-gray-400">Real-time overview of students, classes, and attendance.</p>
+                </div>
+                <!-- Role-Based Access -->
+                <div class="p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                    <svg class="w-10 h-10 text-indigo-500 mb-4"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         viewBox="0 0 24 24">
+                        <path d="M3 7h18M3 12h18M3 17h18" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Role-Based Access</h3>
+                    <p class="text-gray-400">Separate portals and permissions for each role.</p>
+                </div>
+                <!-- Secure Isolation -->
+                <div class="p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                    <svg class="w-10 h-10 text-indigo-500 mb-4"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         viewBox="0 0 24 24">
+                        <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Secure Isolation</h3>
+                    <p class="text-gray-400">Each school has its own schema—zero data leaks.</p>
+                </div>
+            </div>
+        </section>
+        <!-- PRICING -->
+        <section id="pricing" class="py-20 bg-gray-900 text-gray-100">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4">Flexible Pricing</h2>
+                <p class="text-gray-400 mb-12">Choose a plan that fits your school's size and needs.</p>
+                <div class="grid gap-8 md:grid-cols-3">
+                    <div class="p-8 bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
+                        <h3 class="text-xl font-semibold mb-2">Starter</h3>
+                        <p class="text-3xl font-bold mb-4">
+                            $19<span class="text-base font-medium text-gray-400">/month</span>
+                        </p>
+                        <ul class="text-sm text-gray-300 space-y-2 mb-6">
+                            <li>✔ Up to 100 Students</li>
+                            <li>✔ Basic Dashboard</li>
+                            <li>✔ Email Support</li>
+                        </ul>
+                        <a href="#"
+                           class="block w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-lg font-semibold">Choose Plan</a>
+                    </div>
+                    <div class="p-8 bg-indigo-700 rounded-xl shadow-lg transform scale-105">
+                        <h3 class="text-xl font-semibold mb-2">Pro</h3>
+                        <p class="text-3xl font-bold mb-4">
+                            $49<span class="text-base font-medium text-gray-100">/month</span>
+                        </p>
+                        <ul class="text-sm text-white space-y-2 mb-6">
+                            <li>✔ Up to 1000 Students</li>
+                            <li>✔ Advanced Features</li>
+                            <li>✔ Priority Support</li>
+                        </ul>
+                        <a href="#"
+                           class="block w-full bg-white text-indigo-700 py-2 rounded-lg font-semibold hover:bg-gray-100">Most Popular</a>
+                    </div>
+                    <div class="p-8 bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
+                        <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+                        <p class="text-3xl font-bold mb-4">Custom</p>
+                        <ul class="text-sm text-gray-300 space-y-2 mb-6">
+                            <li>✔ Unlimited Students</li>
+                            <li>✔ Dedicated Server</li>
+                            <li>✔ 24/7 Support</li>
+                        </ul>
+                        <a href="#"
+                           class="block w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-lg font-semibold">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="py-20 bg-gray-900">
+            <div class="max-w-4xl mx-auto px-6 text-center mb-12">
+                <h2 class="text-3xl font-bold">What Our Clients Say</h2>
+            </div>
+            <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-gray-800 rounded-xl shadow hover:shadow-xl transition">
+                    <p class="mb-4">“Switching to HyprSaaS streamlined our workflows, and staff love the interface.”</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/48?img=32"
+                             alt="Ayesha Khan"
+                             class="w-12 h-12 rounded-full" />
+                        <div>
+                            <p class="font-semibold">Ayesha Khan</p>
+                            <p class="text-sm text-gray-400">Principal, Bright Future School</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 bg-gray-800 rounded-xl shadow hover:shadow-xl transition">
+                    <p class="mb-4">“Data security and performance improved dramatically.”</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/48?img=44"
+                             alt="Javed Malik"
+                             class="w-12 h-12 rounded-full" />
+                        <div>
+                            <p class="font-semibold">Javed Malik</p>
+                            <p class="text-sm text-gray-400">IT Director, Future Leaders Academy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA -->
+        <section id="contact" class="py-20 bg-indigo-600 text-white text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to Elevate Your School?</h2>
+            <p class="mb-6">Start your 14-day free trial today. No credit card required.</p>
+            <a href="#"
+               class="px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg hover:scale-105 transition shadow">Start Free Trial</a>
+        </section>
+        <!-- FOOTER -->
+        <footer class="bg-gray-900 py-12 text-gray-300">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="font-semibold mb-3 text-indigo-500">HyprSaaS</h4>
+                    <p>Professional school management software.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#features" class="hover:text-indigo-400 transition">Features</a>
+                        </li>
+                        <li>
+                            <a href="#pricing" class="hover:text-indigo-400 transition">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#testimonials" class="hover:text-indigo-400 transition">Testimonials</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Contact Us</h4>
+                    <p>Email: support@hyprsaas.com</p>
+                    <p>Phone: +92 300 1234567</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm">© 2025 HyprSaaS Inc. All rights reserved.</div>
+        </footer>
+        <!-- JS -->
+        <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+    const root = document.documentElement;
+    const current = localStorage.getItem('theme') || 'dark';
+    root.classList.toggle('dark', current === 'dark');
+    sun.classList.toggle('hidden', current !== 'dark');
+    moon.classList.toggle('hidden', current === 'dark');
+    themeToggle.addEventListener('click', () => {
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      sun.classList.toggle('hidden', !isDark);
+      moon.classList.toggle('hidden', isDark);
+    });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+        </script>
+    </body>
+</html>
