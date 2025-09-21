@@ -8,5 +8,5 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
    # path('admin/', admin.site.urls, name="admin"),
-   path('apiv1/school/', include('apps.school.urls', namespace='school')),
+   path('api/v1/school/', include('apps.school.urls', namespace='school')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
