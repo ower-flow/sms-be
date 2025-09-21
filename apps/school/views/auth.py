@@ -23,7 +23,7 @@ class SchoolLoginView(APIView):
 
         user = serializer.validated_data["user"]
         school = serializer.validated_data["school"]
-        schema = serializer.validated_data["schema"]
+        # schema = serializer.validated_data["schema"]
         domain = serializer.validated_data["domain"]
 
         # Update last_login fields atomically
