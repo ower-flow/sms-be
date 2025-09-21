@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from apps.school.models import School
-from apps.common.enums import SchoolTypeEnum
+from owerflow_core.enums import SchoolTypeEnum
 from datetime import date
 
 

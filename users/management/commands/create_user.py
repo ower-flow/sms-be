@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 
-from apps.common.enums import GenderEnum
+from owerflow_core.enums import GenderEnum
 from users.models import RoleEnum
 
 
