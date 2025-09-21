@@ -20,8 +20,6 @@ dependencies = [
 [dependency-groups]
 dev = [
     "django-extensions>=4.1",
-    "djprod>=0.2.2",
-    "pgadmin4>=9.6",
 ]
 
 [tool.uv.workspace]
