@@ -14,6 +14,11 @@ class BaseModel(models.Model):
     id = models.BigAutoField(primary_key=True)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False, db_index=True)
 
+    class Meta:
+        abstract = True
+
+class BaseUserModel(BaseModel):
+    
     # Identity
     first_name = models.CharField(max_length=50, blank=True, null=True)
     middle_name = models.CharField(max_length=50, blank=True, null=True)
