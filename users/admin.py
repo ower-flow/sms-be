@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from .models import CustomUser, SchoolSchema, SchoolDomain, RoleEnum
+from .models import CustomUser, SchoolSchema, SchoolDomain
+from owerflow_core.enums import UserRoleEnum
 
 
 @admin.register(CustomUser)
@@ -92,7 +93,7 @@ class CustomUserAdmin(BaseUserAdmin):
             return format_html(
                 '<strong style="color: #dc3545;">System Administrator</strong>'
             )
-        elif obj.role == RoleEnum.SCHOOL_ADMIN:
+        elif obj.role == UserRoleEnum.SCHOOL_ADMIN:
             return format_html(
                 '<span style="color: #28a745;">School Admin</span>'
             )

@@ -4,11 +4,10 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractUser, UserManager
 from django_tenants.models import TenantMixin, DomainMixin 
-from owerflow_core.enums import GenderEnum
+from owerflow_core.enums import GenderEnum, UserRoleEnum
 
 
-class RoleEnum(models.TextChoices):
-    SCHOOL_ADMIN = 'schooladmin', 'School Admin'
+# Using UserRoleEnum from owerflow_core instead of local RoleEnum
 
 
 class CustomUserManager(UserManager):
@@ -16,7 +15,7 @@ class CustomUserManager(UserManager):
     
     def school_admins(self):
         """Get all school admin users"""
-        return self.filter(role=RoleEnum.SCHOOL_ADMIN)
+        return self.filter(role=UserRoleEnum.SCHOOL_ADMIN)
     
     def active_users(self):
         """Get all active users"""
@@ -36,7 +35,7 @@ class CustomUser(AbstractUser):
     
     role = models.CharField(
         max_length=20,  
-        choices=RoleEnum.choices,
+        choices=UserRoleEnum.choices,
         blank=True,
         null=True,  # Allow null for superusers
         help_text="Role for regular users. Superusers don't need a role."
@@ -91,7 +90,7 @@ class CustomUser(AbstractUser):
             self.role = None
         elif not self.role and not self.is_superuser:
             # Regular users have default role
-            self.role = RoleEnum.SCHOOL_ADMIN
+            self.role = UserRoleEnum.SCHOOL_ADMIN
         
         super().save(*args, **kwargs)
     
@@ -100,7 +99,7 @@ class CustomUser(AbstractUser):
         super().clean()
         
         # Email validation for school admin role
-        if self.role == RoleEnum.SCHOOL_ADMIN and not self.email:
+        if self.role == UserRoleEnum.SCHOOL_ADMIN and not self.email:
             raise ValidationError("Email is required for School Admin role.")
     
     def __str__(self):
@@ -128,7 +127,7 @@ class CustomUser(AbstractUser):
     
     def is_school_admin(self):
         """Check if user is school admin"""
-        return self.role == RoleEnum.SCHOOL_ADMIN
+        return self.role == UserRoleEnum.SCHOOL_ADMIN
     
     @property
     def age(self):
