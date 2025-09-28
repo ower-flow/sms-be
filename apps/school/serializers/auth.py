@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from users.models import CustomUser
-from django_tenants.utils import get_tenant
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.exceptions import AuthenticationFailed, PermissionDenied
+from owerflow_core.tenancy.resolver import get_current_tenant, get_school_from_tenant
 
 
 class SchoolLoginSerializer(serializers.Serializer):
@@ -25,9 +25,9 @@ class SchoolLoginSerializer(serializers.Serializer):
         if not request:
             raise PermissionDenied("Missing request context.")
 
-        # Resolve current tenant from the domain (request.tenant if available)
-        tenant = getattr(request, "tenant", None) or get_tenant(request)
-        school = getattr(tenant, "school", None)
+        # Resolve current tenant and school using owerflow_core functions
+        tenant = get_current_tenant(request)
+        school = get_school_from_tenant(tenant)
         if school is None:
             raise PermissionDenied(self.error_messages["no_school_for_domain"])
 
@@ -61,7 +61,7 @@ class SchoolLoginSerializer(serializers.Serializer):
         if not school.is_active:
             raise PermissionDenied(self.error_messages["inactive_school"])
 
-        # Enforce domain/school match
+        # domain/school match
         if user_school.id != school.id:
             raise PermissionDenied(self.error_messages["wrong_domain"])
 
