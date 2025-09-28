@@ -1,15 +1,9 @@
 
-from django.urls import path
-from . import views
+from django.urls import path, re_path
+from apps.teacher.views.auth import TeacherLoginView
 
 app_name = 'teacher'
 
-from rest_framework.routers import DefaultRouter
-from apps.teacher.views.profiles import TeacherViewSet
-
-router = DefaultRouter()
-router.register(r"teachers", TeacherViewSet, basename="teacher")
-urlpatterns = router.urls
-
-
-urlpatterns = []
+urlpatterns = [
+    path('auth/login/', TeacherLoginView.as_view(), name='teacher-login'),
+]

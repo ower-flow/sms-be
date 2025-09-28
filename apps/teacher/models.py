@@ -8,7 +8,7 @@ from owerflow_core.models import BaseModel
 #     return f"teacher/avatars/{instance.employee_id}/{filename}"
 
 
-class Teacher(BaseModel):
+class Teacher(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -25,6 +25,8 @@ class Teacher(BaseModel):
         unique=True,
         db_index=True,
     )
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
 
     class Meta:
         # Per-tenant uniqueness
@@ -41,6 +43,7 @@ class Teacher(BaseModel):
         indexes = [
             models.Index(fields=["school", "employee_id"]),
             models.Index(fields=["school"]),
+            models.Index(fields=["email"]),
         ]
         ordering = ["user__first_name", "user__last_name"]
 
@@ -49,7 +52,6 @@ class Teacher(BaseModel):
         # Ensure the linked user has the TEACHER role
         if getattr(self.user, "role", None) != UserRoleEnum.TEACHER:
             raise ValidationError("Linked user must have role 'teacher'.")
-        # If you also link users to schools elsewhere, enforce match here if applicable.
 
     def save(self, *args, **kwargs):
         self.full_clean()
